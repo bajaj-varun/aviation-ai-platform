@@ -2,7 +2,10 @@
 
 ## Executive Summary
 
-Architected and led the development of an AI-driven platform to optimize operational efficiency for a global aviation client. The system unified disparate data sources—including flight manifests, cargo waybills, maintenance logs, and weather reports—into a single intelligence hub. By leveraging Generative AI and RAG (Retrieval-Augmented Generation), the platform automated critical support workflows, reduced manual lookup times, and provided real-time, context-aware insights to ground crews, cargo handlers, and operational staff.
+An AI-driven platform created and delivered by [Varun Bajaj](https://www.linkedin.com/in/vbajaj3) to optimize operational efficiency for a global aviation client. The system unified disparate data sources—including flight manifests, cargo waybills, maintenance logs, and weather reports—into a single intelligence hub. By leveraging Generative AI and RAG (Retrieval-Augmented Generation), the platform automated critical support workflows, reduced manual lookup times, and provided real-time, context-aware insights to ground crews, cargo handlers, and operational staff.
+
+## High level diagram
+![HLD](aviation-ai-platform_HLD.drawio.svg)
 
 ## Key Responsibilities & Technical Implementation
 
