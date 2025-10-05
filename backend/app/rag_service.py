@@ -8,7 +8,10 @@ from langchain_aws import BedrockLLM
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain.schema import Document
+from dotenv import load_dotenv
 import json
+
+load_dotenv()
 
 class RAGService:
     def __init__(self):
@@ -18,15 +21,13 @@ class RAGService:
     
     def setup_clients(self):
         # AWS Bedrock client
-        os.environ['AWS_BEARER_TOKEN_BEDROCK'] = "ABSKYXZpYXRpb24tYWktcGxhdGZvcm1fdXNlci1hdC0xMTc2NzY4Nzc0MDk6cUlIeXp0TnBYODNqNHhNb2MyZGE0Z1VwRE5ITkQxUHJENnVPQ1locGJRQ0lod0JLTHhoV2YrSkUycG89"
         self.bedrock_runtime = boto3.client(
             'bedrock-runtime',
             region_name=os.getenv('AWS_REGION')
         )
         
         # MongoDB client
-        # self.mongo_client = MongoClient(os.getenv('MONGODB_URI'))
-        self.mongo_client = MongoClient("mongodb+srv://varun:varun123@learning-cluster.u4o6qjl.mongodb.net")
+        self.mongo_client = MongoClient(os.getenv('MONGODB_URI'))
         self.db = self.mongo_client['aviation_db']
         self.collection = self.db['aviation_docs']
     
