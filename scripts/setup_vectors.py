@@ -1,6 +1,10 @@
 import os
 import sys
-sys.path.append('../backend')
+from dotenv import load_dotenv
+
+load_dotenv()
+
+sys.path.append('./backend')
 
 from app.rag_service import RAGService
 

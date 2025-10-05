@@ -35,8 +35,7 @@ class RAGService:
         self.embeddings = BedrockEmbeddings(
             client=self.bedrock_runtime,
             
-            # model_id=os.getenv('TEXT_EMBEDDING_MODEL')
-            model_id="amazon.titan-embed-text-v2:0"
+            model_id=os.getenv('TEXT_EMBEDDING_MODEL')
         )
         
         self.vector_store = MongoDBAtlasVectorSearch(
@@ -49,8 +48,7 @@ class RAGService:
     def setup_llm(self):
         self.llm = BedrockLLM(
             client=self.bedrock_runtime,
-            # model_id=os.getenv('REASONING_MODEL'),
-            model_id="anthropic.claude-sonnet-4-5-20250929-v1:0",
+            model_id=os.getenv('REASONING_MODEL'),
             model_kwargs={
                 "max_tokens_to_sample": 1000,
                 "temperature": 0.1,
