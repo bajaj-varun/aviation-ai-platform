@@ -1,0 +1,5 @@
+flight_number,waybill_number,shipper_name,consignee_name,cargo_description,weight_kg,volume_cubic_m,special_handling,hazardous_material
+LH457,LH20240116001,German Auto Parts,Texas Automotive,Automotive components,5200.75,18.2,HEAVY,false
+AF386,AF20240116001,French Perfumes,Miami Luxury Goods,Designer perfumes and cosmetics,1850.25,6.5,HIGH_VALUE,false
+JL061,JL20240116001,Tokyo Electronics,Dallas Tech Hub,Consumer electronics and components,6850.50,22.8,FRAGILE,false
+CX831,CX20240116001,Hong Kong Pharma,Vancouver Medical,Pharmaceutical supplies,3200.00,12.3,TEMPERATURE_CONTROLLED,false

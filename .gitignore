@@ -1,0 +1,12 @@
+# Global
+.env
+
+# Backend
+*/venv
+*/*/__pycache__
+
+# Frontend
+*/package-lock.json
+.env
+aviation-ai-platform.drawio.svg
+project_structure.txt

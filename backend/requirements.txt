@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+pymongo
+boto3
+langchain
+langchain-community
+langchain-aws
+langchain_mongodb
+pydantic
+snowflake-connector-python
+python-dotenv
+pandas
+numpy
+dotenv
