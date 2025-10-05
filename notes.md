@@ -1,6 +1,11 @@
 # Architecture Diagram: GenAI-Powered Aviation Operational Intelligence Platform
 
-The architecture is built on AWS and consists of four main layers: Data Ingestion & Orchestration, Data Storage & Processing, AI & Application Layer, and Security & Operations, all unified by CI/CD & GitOps.
+The architecture is built on AWS and consists of four main layers: 
+1. Data Ingestion & Orchestration
+2. Data Storage & Processing
+3. AI & Application Layer
+4. Security & Operations
+5. Unified by CI/CD & GitOps.
 
 ## Layer 1: Data Ingestion & Orchestration
 
