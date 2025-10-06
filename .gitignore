@@ -1,9 +1,10 @@
 # Global
 .env
+sample_AI_queries.txt
 
 # Backend
-*/venv
-*/*/__pycache__
+backend/venv
+backend/*/__pycache__
 
 # Frontend
 frontend/package-lock.json

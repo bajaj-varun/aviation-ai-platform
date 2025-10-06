@@ -1,143 +1,42 @@
-.app {
-  max-width: 1200px;
+#root {
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-.app-header {
+  padding: 2rem;
   text-align: center;
-  margin-bottom: 30px;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  color: white;
-  padding: 30px;
-  border-radius: 10px;
 }
 
-.tabs {
-  display: flex;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #ddd;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.tabs button {
-  padding: 12px 24px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-size: 16px;
-  border-bottom: 3px solid transparent;
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.tabs button.active {
-  border-bottom: 3px solid #2a5298;
-  color: #2a5298;
-  font-weight: bold;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
-.chat-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.card {
+  padding: 2em;
 }
 
-.query-section {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.query-section textarea {
-  padding: 15px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
-  resize: vertical;
-}
-
-.query-section button {
-  padding: 12px 24px;
-  background: #2a5298;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.query-section button:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-}
-
-.response-section {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  background: #f9f9f9;
-}
-
-.answer {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  padding: 15px;
-  background: white;
-  border-radius: 5px;
-  border-left: 4px solid #2a5298;
-}
-
-.sources {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.source-doc {
-  padding: 10px;
-  background: white;
-  border-radius: 5px;
-  border-left: 3px solid #28a745;
-}
-
-.flights-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.flight-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 15px;
-  background: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.status-scheduled { color: #007bff; }
-.status-departed { color: #ffc107; }
-.status-arrived { color: #28a745; }
-.status-delayed { color: #dc3545; }
-
-.cargo-search {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.cargo-search input {
-  padding: 10px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-  flex: 1;
-}
-
-.cargo-search button {
-  padding: 10px 20px;
-  background: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.read-the-docs {
+  color: #888;
 }
