@@ -2,7 +2,6 @@ import os
 import boto3
 from pymongo import MongoClient
 from langchain_aws.embeddings import BedrockEmbeddings
-# from langchain.vectorstores import MongoDBAtlasVectorSearch
 from langchain_mongodb import MongoDBAtlasVectorSearch
 from langchain_aws import BedrockLLM
 from langchain.chains import RetrievalQA

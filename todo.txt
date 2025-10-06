@@ -1,0 +1,25 @@
+- Social networking 
+    0. Blog writeup
+    1. Linkedin summary writeup
+    2. Youtube blog
+
+
+- Technical updates
+    0) Architecture diagrams
+        0.1) Low level diagram 
+            0.1.1) VPC and private/public subnets dataflow
+            0.1.2) Least privilege design patterns (IAM, policies)
+            0.1.3) Self healing and auto-scaling
+            0.1.4) Total cost estimation (llm usage, infra cost, data transfer) with envelope size assumption  
+
+    1) Must to have
+        1.1) CI/CD 
+        1.2) Kubernetes deployment
+        1.3) Advanced monitoring and logging 
+            1.3.1) integration with AWS Managed Prometheus
+            1.3.2) dashboard with AWS Managed Grafana
+
+    2) Nice to have
+        2.1) Sample flight data integration with Airflow dags
+        2.2) More comprehensive document sets
+        2.3) User authentication

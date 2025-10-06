@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: data-initialization
+  namespace: aviation-platform
+spec:
+  template:
+    spec:
+      containers:
+      - name: data-init
+        image: aviation-platform-backend:latest
+        command: ["python", "scripts/setup_vectors.py"]
+        env:
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: aviation-secrets
+              key: AWS_ACCESS_KEY_ID
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: aviation-secrets
+              key: AWS_SECRET_ACCESS_KEY
+        - name: MONGODB_URI
+          valueFrom:
+            configMapKeyRef:
+              name: aviation-config
+              key: MONGODB_URI
+        - name: AWS_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: aviation-config
+              key: AWS_REGION
+      restartPolicy: Never
+  backoffLimit: 3

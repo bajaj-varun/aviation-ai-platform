@@ -1,0 +1,115 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: aviation-platform
+  labels:
+    app: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8000"
+        prometheus.io/path: "/metrics"
+    spec:
+      containers:
+      - name: backend
+        image: aviation-platform-backend:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        env:
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: aviation-secrets
+              key: AWS_ACCESS_KEY_ID
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: aviation-secrets
+              key: AWS_SECRET_ACCESS_KEY
+        - name: MONGODB_URI
+          valueFrom:
+            configMapKeyRef:
+              name: aviation-config
+              key: MONGODB_URI
+        - name: SNOWFLAKE_USER
+          valueFrom:
+            secretKeyRef:
+              name: aviation-secrets
+              key: SNOWFLAKE_USER
+        - name: SNOWFLAKE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: aviation-secrets
+              key: SNOWFLAKE_PASSWORD
+        - name: SNOWFLAKE_ACCOUNT
+          valueFrom:
+            secretKeyRef:
+              name: aviation-secrets
+              key: SNOWFLAKE_ACCOUNT
+        - name: SNOWFLAKE_WAREHOUSE
+          valueFrom:
+            secretKeyRef:
+              name: aviation-secrets
+              key: SNOWFLAKE_WAREHOUSE
+        - name: SNOWFLAKE_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: aviation-secrets
+              key: SNOWFLAKE_DATABASE
+        - name: SNOWFLAKE_SCHEMA
+          valueFrom:
+            secretKeyRef:
+              name: aviation-secrets
+              key: SNOWFLAKE_SCHEMA
+        - name: AWS_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: aviation-config
+              key: AWS_REGION
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: aviation-config
+              key: LOG_LEVEL
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: aviation-platform
+spec:
+  selector:
+    app: backend
+  ports:
+  - port: 8000
+    targetPort: 8000
+  type: ClusterIP

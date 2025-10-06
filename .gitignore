@@ -6,6 +6,13 @@
 */*/__pycache__
 
 # Frontend
-*/package-lock.json
+frontend/package-lock.json
 .env
 project_structure.txt
+
+
+# kubernetes
+kubernetes/configmap.yaml
+kubernetes/secrets
+kubernetes/scripts/build-images.sh
+kubernetes/scripts/deploy.sh
