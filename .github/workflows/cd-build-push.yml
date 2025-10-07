@@ -29,7 +29,7 @@ jobs:
       id: meta
       uses: docker/metadata-action@v5
       with:
-        images: varun-bajaj/aviation-${{ matrix.component }}
+        images: bajajv/aviation-${{ matrix.component }}
         tags: |
           type=ref,event=branch
           type=ref,event=pr
