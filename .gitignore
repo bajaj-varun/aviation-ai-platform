@@ -9,7 +9,7 @@ backend/*/__pycache__
 backend/testBackendContainer.sh
 
 # Frontend
-frontend/package-lock.json
+# frontend/package-lock.json
 frontend/.env
 
 
