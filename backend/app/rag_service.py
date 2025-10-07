@@ -113,3 +113,34 @@ Answer:"""
         docs = [Document(page_content=doc["text"], metadata=doc["metadata"]) 
                 for doc in documents]
         self.vector_store.add_documents(docs)
+
+    def test_connection(self) -> Dict[str, Any]:
+        """Test Bedrock connection directly"""
+        try:
+            # Test with simple message
+            messages = [
+                {
+                    "role": "user",
+                    "content": [{"type": "text", "text": "Hello, respond with 'OK' if you can read this."}]
+                }
+            ]
+            
+            body = {
+                "anthropic_version": "bedrock-2023-05-31",
+                "max_tokens": 60,
+                "temperature": 0.1,
+                "messages": messages
+            }
+            
+            response = self.bedrock_runtime.invoke_model(
+                modelId=os.getenv('REASONING_MODEL'),
+                body=json.dumps(body)
+            )
+            
+            response_body = json.loads(response['body'].read())
+            answer = response_body['content'][0]['text']
+            
+            return { True, answer}
+            
+        except Exception as e:
+            return {False, f"Bedrock connection failed: {e}"}

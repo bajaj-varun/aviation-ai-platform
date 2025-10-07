@@ -209,7 +209,7 @@ class DataAPI:
             }
         ]
     
-    def get_sample_cargo_data(self) -> List[Dict]:
+    def get_sample_cargo_data() -> List[Dict]:
         """Return sample cargo data for fallback"""
         return [
             {
@@ -225,6 +225,30 @@ class DataAPI:
                 "created_at": "2024-01-15T10:00:00"
             },
             {
+                "flight_number": "FX5101",
+                "waybill_number": "FX7894561231",
+                "shipper_name": "ElectroCorp International",
+                "consignee_name": "Northern Electronics Distributors",
+                "cargo_description": "Consumer electronics - smartphones and tablets",
+                "weight_kg": 3200.75,
+                "volume_cubic_m": 8.2,
+                "special_handling": "FRAGILE",
+                "hazardous_material": False,
+                "created_at": "2024-01-15T10:15:00"
+            },
+            {
+                "flight_number": "5Y800",
+                "waybill_number": "5Y20240115001",
+                "shipper_name": "AutoParts Manufacturing",
+                "consignee_name": "Shanghai Automotive Group",
+                "cargo_description": "Automotive parts and components",
+                "weight_kg": 18500.00,
+                "volume_cubic_m": 45.8,
+                "special_handling": "HEAVY",
+                "hazardous_material": False,
+                "created_at": "2024-01-15T14:30:00"
+            },
+            {
                 "flight_number": "5Y800",
                 "waybill_number": "5Y20240115002",
                 "shipper_name": "ChemTech Laboratories",
@@ -236,9 +260,57 @@ class DataAPI:
                 "hazardous_material": True,
                 "hazmat_class": "Class 9",
                 "created_at": "2024-01-15T15:00:00"
+            },
+            {
+                "flight_number": "UA901",
+                "waybill_number": "UA20240115001",
+                "shipper_name": "FreshFoods Exporters",
+                "consignee_name": "London Gourmet Markets",
+                "cargo_description": "Fresh seafood and perishable foods",
+                "weight_kg": 2800.00,
+                "volume_cubic_m": 15.3,
+                "special_handling": "PERISHABLE",
+                "hazardous_material": False,
+                "created_at": "2024-01-15T16:00:00"
+            },
+            {
+                "flight_number": "SQ305",
+                "waybill_number": "SQ20240116001",
+                "shipper_name": "Singapore Electronics",
+                "consignee_name": "Sydney Tech Distributors",
+                "cargo_description": "High-value electronics and components",
+                "weight_kg": 4200.75,
+                "volume_cubic_m": 9.6,
+                "special_handling": "HIGH_VALUE",
+                "hazardous_material": False,
+                "created_at": "2024-01-16T08:00:00"
+            },
+            {
+                "flight_number": "BA117",
+                "waybill_number": "BA20240115001",
+                "shipper_name": "UK Pharmaceuticals Ltd",
+                "consignee_name": "Dubai Medical Center",
+                "cargo_description": "Pharmaceutical supplies and vaccines",
+                "weight_kg": 1800.25,
+                "volume_cubic_m": 6.8,
+                "special_handling": "TEMPERATURE_CONTROLLED",
+                "hazardous_material": False,
+                "created_at": "2024-01-15T18:00:00"
+            },
+            {
+                "flight_number": "EK202",
+                "waybill_number": "EK20240116001",
+                "shipper_name": "Middle East Logistics",
+                "consignee_name": "Singapore Trading Co.",
+                "cargo_description": "Industrial machinery parts",
+                "weight_kg": 7500.00,
+                "volume_cubic_m": 22.5,
+                "special_handling": "HEAVY",
+                "hazardous_material": False,
+                "created_at": "2024-01-16T01:00:00"
             }
         ]
-    
+
     def get_sample_cargo_by_flight(self, flight_number: str) -> Dict:
         """Return sample cargo data for a specific flight"""
         sample_data = {

@@ -23,3 +23,6 @@
         2.1) Sample flight data integration with Airflow dags
         2.2) More comprehensive document sets
         2.3) User authentication
+
+- Next phase 
+    0) MongoDB vectorSearch indexing functionality refactor the code. 

@@ -6,6 +6,9 @@ const FlightOperations = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState('');
+  const apiUrl = import.meta.env.VITE_API_URL;
+// TODO: Need to remove
+  console.info("apiurl =>",apiUrl)
 
   useEffect(() => {
     loadFlights();
@@ -14,7 +17,7 @@ const FlightOperations = () => {
   const loadFlights = async () => {
     try {
       setLoading(true);
-      const res = await fetch('http://localhost:8000/flights');
+      const res = await fetch(`${apiUrl}/flights`);
       const data = await res.json();
       setFlights(data.flights || []);
     } catch (error) {

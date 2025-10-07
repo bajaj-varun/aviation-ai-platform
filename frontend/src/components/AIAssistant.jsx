@@ -7,6 +7,9 @@ const AIAssistant = () => {
   const [response, setResponse] = useState(null);
   const [loading, setLoading] = useState(false);
   const [chatHistory, setChatHistory] = useState([]);
+  const apiUrl = import.meta.env.VITE_API_URL;
+  // TODO: Need to remove
+  console.info("apiurl =>",apiUrl)
 
   const handleQuery = async () => {
     if (!query.trim()) return;
@@ -15,7 +18,7 @@ const AIAssistant = () => {
     const userMessage = { type: 'user', content: query, context: contextType };
     
     try {
-      const res = await fetch('http://localhost:8000/query', {
+      const res = await fetch(`${apiUrl}/query`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

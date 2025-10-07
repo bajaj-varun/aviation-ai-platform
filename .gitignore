@@ -1,15 +1,16 @@
 # Global
 .env
 sample_AI_queries.txt
+project_structure.txt
 
 # Backend
 backend/venv
 backend/*/__pycache__
+backend/testBackendContainer.sh
 
 # Frontend
 frontend/package-lock.json
-.env
-project_structure.txt
+frontend/.env
 
 
 # kubernetes
