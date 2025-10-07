@@ -14,7 +14,7 @@ frontend/.env
 
 
 # kubernetes
-kubernetes/configmap.yaml
-kubernetes/secrets
+kubernetes/infrastructure/base/configmap.yaml
+kubernetes/infrastructure/base/secrets
 kubernetes/scripts/build-images.sh
 kubernetes/scripts/deploy.sh

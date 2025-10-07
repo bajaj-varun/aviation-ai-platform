@@ -1,0 +1,35 @@
+name: CD ArgoCD Sync
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  sync-argocd:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Update Kustomize image tags
+      run: |
+        cd infrastructure/overlays/production
+        kustomize edit set image varun-bajaj/aviation-backend=varun-bajaj/aviation-backend:${{ github.sha }}
+        kustomize edit set image varun-bajaj/aviation-frontend=varun-bajaj/aviation-frontend:${{ github.sha }}
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Update image tags to ${{ github.sha }}" || exit 0
+        git push
+
+    - name: Sync ArgoCD Application
+      uses: argoproj/actions/gitops-update@main
+      with:
+        application: aviation-production
+        namespace: argocd
+        githubToken: ${{ secrets.GITHUB_TOKEN }}

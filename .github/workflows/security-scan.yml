@@ -1,0 +1,34 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [ main, develop ]
+  schedule:
+    - cron: '0 2 * * 1'  # Weekly on Monday at 2 AM
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run Snyk to check for vulnerabilities
+      uses: snyk/actions/python@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        args: --severity-threshold=high
+
+    - name: Run KubeSec
+      uses: controlplaneio/kubsec-action@master
+      with:
+        path: infrastructure/
+
+    - name: Run Terrascan
+      uses: accurics/terrascan-action@main
+      with:
+        iac_type: terraform
+        iac_version: v1
+        policy_type: aws

@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aviation-production
+  namespace: argocd
+spec:
+  project: production
+  
+  source:
+    repoURL: https://github.com/bajaj-varun/aviation-ai-platform.git
+    targetRevision: main
+    path: infrastructure/overlays/production
+  
+  destination:
+    server: https://production-cluster.example.com
+    namespace: aviation-platform
+  
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true
+    
+  # Manual approval for production
+  syncWindows:
+  - kind: allow
+    schedule: '0 9 * * 1-5'
+    duration: 8h
+    applications:
+    - aviation-production
