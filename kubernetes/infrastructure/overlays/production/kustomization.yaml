@@ -18,8 +18,8 @@ configMapGenerator:
   - name: aviation-config
     behavior: merge
     literals:
-      - ENVIRONMENT=development
-      - LOG_LEVEL=DEBUG
+      - ENVIRONMENT=production
+      - LOG_LEVEL=INFO
 
 patchesStrategicMerge:
   - deployment-patch.yaml

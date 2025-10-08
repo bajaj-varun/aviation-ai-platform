@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aviation-config
+  namespace: aviation-platform
+data:
+  MONGODB_URI: "mongodb://<<user>>:<<password>>@cluster"
+  AWS_REGION: "ap-south-1"
+  LOG_LEVEL: "INFO"
+  TEXT_EMBEDDING_MODEL: "amazon.titan-embed-text-v2:0"
+  REASONING_MODEL:  "global.anthropic.claude-sonnet-4-5-20250929-v1:0"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-config
+  namespace: aviation-platform
+data:
+  VITE_API_URL: "http://backend-service:8000"

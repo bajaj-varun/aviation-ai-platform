@@ -2,6 +2,7 @@
 .env
 sample_AI_queries.txt
 project_structure.txt
+k8s_error.txt
 
 # Backend
 backend/venv
@@ -15,6 +16,6 @@ frontend/.env
 
 # kubernetes
 kubernetes/infrastructure/base/configmap.yaml
-kubernetes/infrastructure/base/secrets
+kubernetes/infrastructure/base/secrets/secret.yaml
 kubernetes/scripts/build-images.sh
 kubernetes/scripts/deploy.sh

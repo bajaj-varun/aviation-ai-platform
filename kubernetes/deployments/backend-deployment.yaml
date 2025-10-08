@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: aviation-platform-backend:latest
+        image: bajajv/aviation-backend:main
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
@@ -81,6 +81,16 @@ spec:
             configMapKeyRef:
               name: aviation-config
               key: LOG_LEVEL
+        - name: TEXT_EMBEDDING_MODEL
+          valueFrom:
+            configMapKeyRef:
+              name: aviation-config
+              key: TEXT_EMBEDDING_MODEL
+        - name: REASONING_MODEL
+          valueFrom:
+            configMapKeyRef:
+              name: aviation-config
+              key: REASONING_MODEL
         resources:
           requests:
             memory: "512Mi"

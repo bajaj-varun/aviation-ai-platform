@@ -26,3 +26,5 @@
 
 - Next phase 
     0) MongoDB vectorSearch indexing functionality refactor the code. 
+    1) Integrate with Twilio whatsapp for natural language updates from snowflake, should not be able to retrieve PI/PII information.
+    
