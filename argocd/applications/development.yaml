@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: aviation-development
-  namespace: aviation-platform
+  namespace: argocd
 spec:
   project: default
   
@@ -15,7 +15,7 @@ spec:
   
   destination:
     server: https://kubernetes.default.svc
-    namespace: aviation-platform
+    namespace: argocd
   
   syncPolicy:
     automated:
