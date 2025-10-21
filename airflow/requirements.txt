@@ -1,0 +1,15 @@
+# apache-airflow-providers-snowflake
+# apache-airflow-providers-mongo
+# apache-airflow-providers-amazon
+
+# snowflake-connector-python
+# python-docx
+# boto3 
+# pymongo 
+# pypdf2 
+
+langchain
+langchain-community
+langchain-aws
+langchain_mongodb
+pydantic 

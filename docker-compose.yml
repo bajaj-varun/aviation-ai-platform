@@ -1,45 +1,37 @@
 version: '3.8'
 
 services:
-  backend:
-    build: ./backend
+  backend-service:
+    image: backend
     ports:
       - "8000:8000"
-    environment:
-      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-      - MONGODB_URI=${MONGODB_URI}
-      - SNOWFLAKE_USER=${SNOWFLAKE_USER}
-      - SNOWFLAKE_PASSWORD=${SNOWFLAKE_PASSWORD}
-      - SNOWFLAKE_ACCOUNT=${SNOWFLAKE_ACCOUNT}
-      - SNOWFLAKE_WAREHOUSE=${SNOWFLAKE_WAREHOUSE}
-      - SNOWFLAKE_DATABASE=${SNOWFLAKE_DATABASE}
-      - SNOWFLAKE_SCHEMA=${SNOWFLAKE_SCHEMA}
+    env_file:
+      - .env
     volumes:
       - ./backend:/app
-    depends_on:
-      - mongodb
+    # depends_on:
+    #   - mongodb
 
-  frontend:
+  frontend-service:
     build: ./frontend
     ports:
-      - "3000:3000"
+      - "80:80"
     environment:
-      - REACT_APP_API_URL=http://localhost:8000
+      - VITE_API_URL=http://localhost
     volumes:
       - ./frontend:/app
       - /app/node_modules
 
-  mongodb:
-    image: mongo:6.0
-    ports:
-      - "27017:27017"
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=password
-      - MONGO_INITDB_DATABASE=aviation_db
-    volumes:
-      - mongodb_data:/data/db
+  # mongodb:
+  #   image: mongo:6.0
+  #   ports:
+  #     - "27017:27017"
+  #   environment:
+  #     - MONGO_INITDB_ROOT_USERNAME=admin
+  #     - MONGO_INITDB_ROOT_PASSWORD=password
+  #     - MONGO_INITDB_DATABASE=aviation_db
+  #   volumes:
+  #     - mongodb_data:/data/db
 
-volumes:
-  mongodb_data:
+# volumes:
+#   mongodb_data:

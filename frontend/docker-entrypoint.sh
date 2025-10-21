@@ -1,13 +1,20 @@
 #!/bin/sh
 
 # Set default backend URL
-VITE_API_URL=${VITE_API_URL:-"http://backend-service:8000"}
+# VITE_API_URL=${VITE_API_URL:-"http://backend-service:8000"}
+VITE_API_URL="http://backend-service:8000"
 
 # Create nginx configuration dynamically
 cat > /etc/nginx/conf.d/default.conf << EOF
+upstream Backend {
+    server backend-service;
+}
+
 server {
     listen 80;
+    # server_name localhost;
     server_name localhost;
+
     root /usr/share/nginx/html;
     index index.html;
 

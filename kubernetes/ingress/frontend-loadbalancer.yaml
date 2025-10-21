@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-loadbalancer
+  namespace: aviation-platform
+  labels:
+    app: frontend
+    service-type: loadbalancer
+spec:
+  selector:
+    app: frontend
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+    protocol: TCP
+  type: LoadBalancer
+  # Optional: Specific Load Balancer settings
+  loadBalancerSourceRanges:
+  - 0.0.0.0/0  # Allow access from anywhere (restrict in production)

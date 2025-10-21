@@ -3,6 +3,17 @@
 sample_AI_queries.txt
 project_structure.txt
 k8s_error.txt
+scripts/create_eks_cluster.sh
+
+# Airflow
+airflow/airflow_venv
+airflow/*/__pycache__
+airflow/logs
+airflow/airflow.*
+airflow/run_airflow.sh
+airflow/simple_auth_manager_passwords.json.generated
+airflow/webserver*
+airflow/scripts/run_airflow.sh
 
 # Backend
 backend/venv
@@ -19,3 +30,6 @@ kubernetes/infrastructure/base/configmap.yaml
 kubernetes/infrastructure/base/secrets/secret.yaml
 kubernetes/scripts/build-images.sh
 kubernetes/scripts/deploy.sh
+
+# --ingress--
+kubernetes/ingress/about-ingress.md
