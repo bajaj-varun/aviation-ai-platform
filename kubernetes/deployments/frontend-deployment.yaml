@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: test/aviation-frontend:latest
+        image: bajajv/aviation-frontend:main
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80

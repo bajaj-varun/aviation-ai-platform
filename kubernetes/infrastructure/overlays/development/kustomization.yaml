@@ -3,16 +3,16 @@ kind: Kustomization
 
 namespace: aviation-platform
 
-resources:
-  - ../../base/
-  - ../../../backend/k8s/
-  - ../../../frontend/k8s/
+# resources:
+#   - ../../base/
+#   - ../../../deployments/backend-deployment.yaml
+#   - ../../../deployments/frontend-deployment.yaml
 
 images:
   - name: bajajv/aviation-backend
-    newTag: develop
+    newTag: main
   - name: bajajv/aviation-frontend
-    newTag: develop
+    newTag: main
 
 configMapGenerator:
   - name: aviation-config

@@ -8,8 +8,8 @@ spec:
   
   source:
     repoURL: https://github.com/bajaj-varun/aviation-ai-platform.git
-    targetRevision: develop
-    path: infrastructure/overlays/development
+    targetRevision: main
+    path: kubernetes/infrastructure/overlays/development
     directory:
       recurse: true
   

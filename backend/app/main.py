@@ -88,7 +88,8 @@ async def test_bedrock():
         status,message = rag_service.test_connection()
         return {"status": status, "result": message}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        # str(e)
+        raise HTTPException(status_code=500, detail="ERROR: Some error reported to bedrock connection.")
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
