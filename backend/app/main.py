@@ -85,8 +85,12 @@ async def get_cargo_by_flight(flight_number: str):
 async def test_bedrock():
     """Test Bedrock connection"""
     try:
-        status,message = rag_service.test_connection()
-        return {"status": status, "result": message}
+        test_result = rag_service.test_connection()
+        if test_result.get("success"):
+            return {"status": "success", "result": test_result.get("result")}
+        else:
+            # Do not expose internal details in error!
+            raise HTTPException(status_code=500, detail="Bedrock connection failed.")
     except Exception as e:
         # str(e)
         raise HTTPException(status_code=500, detail="ERROR: Some error reported to bedrock connection.")

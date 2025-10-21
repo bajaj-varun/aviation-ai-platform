@@ -7,7 +7,7 @@ from langchain.schema import Document
 from dotenv import load_dotenv
 import json
 from typing import List, Dict, Any
-
+import logging
 load_dotenv()
 
 # TODO: logging and metrics collection
@@ -140,7 +140,8 @@ Answer:"""
             response_body = json.loads(response['body'].read())
             answer = response_body['content'][0]['text']
             
-            return { True, answer}
+            return {"success": True, "result": answer}
             
         except Exception as e:
-            return {False, f"Bedrock connection failed: {e}"}
+            logging.exception("Bedrock test_connection failed.")
+            return {"success": False, "error": "Bedrock connection failed."}
