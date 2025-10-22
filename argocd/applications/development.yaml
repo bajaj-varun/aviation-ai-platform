@@ -10,19 +10,19 @@ spec:
     repoURL: https://github.com/bajaj-varun/aviation-ai-platform.git
     targetRevision: main
     path: kubernetes/infrastructure/overlays/development
-    directory:
-      recurse: true
+    # directory:
+    #   recurse: true
   
   destination:
     server: https://kubernetes.default.svc
-    namespace: aviation-platform
+    namespace: default
   
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
+    - CreateNamespace=false
     
   # ignoreDifferences:
   # - group: apps

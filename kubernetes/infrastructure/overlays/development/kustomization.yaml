@@ -3,10 +3,8 @@ kind: Kustomization
 
 namespace: aviation-platform
 
-# resources:
-#   - ../../base/
-#   - ../../../deployments/backend-deployment.yaml
-#   - ../../../deployments/frontend-deployment.yaml
+resources:
+  - ../../../base/
 
 images:
   - name: bajajv/aviation-backend
@@ -16,10 +14,11 @@ images:
 
 configMapGenerator:
   - name: aviation-config
+    namespace: aviation-platform
     behavior: merge
     literals:
       - ENVIRONMENT=development
-      - LOG_LEVEL=DEBUG
+      - LOG_LEVEL=INFO
 
 # patchesStrategicMerge:
 #   - deployment-patch.yaml
