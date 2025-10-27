@@ -33,5 +33,5 @@ kubernetes/scripts/deploy.sh
 
 # --ingress--
 kubernetes/ingress/about-ingress.md
-argocd/scripts/notes.txt
+argocd/notes.txt
 kustomize
