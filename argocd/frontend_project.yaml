@@ -8,7 +8,7 @@ spec:
   sourceRepos:                 
     - https://github.com/bajaj-varun/aviation-ai-platform.git
   destinations:                
-    - namespace: aviation.ai
+    - namespace: aviation-platform
       server: https://kubernetes.default.svc
   clusterResourceWhitelist:    
     - group: "frontend-team"               

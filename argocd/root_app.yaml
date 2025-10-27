@@ -4,18 +4,12 @@ metadata:
   name: aviation.ai                
   namespace: argocd             
 spec:
-  project: aviation.ai.backend              
+  project: aviation.ai              
   source:
     repoURL: https://github.com/bajaj-varun/aviation-ai-platform.git   
     targetRevision: main        
-    path: kubernetes/deployment/backend   
+    path: kubernetes/deployments
 
-  project: aviation.ai.frontend              
-  source:
-    repoURL: https://github.com/bajaj-varun/aviation-ai-platform.git   
-    targetRevision: main        
-    path: kubernetes/deployment/frontend
-       
   destination:
     server: https://kubernetes.default.svc  
     namespace: aviation.ai             
