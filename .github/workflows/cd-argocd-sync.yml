@@ -15,7 +15,7 @@ jobs:
 
     - name: Update Kustomize image tags
       run: |
-        cd infrastructure/overlays/production
+        cd kubernetes/infrastructure/overlays/production
         kustomize edit set image bajajv/aviation-backend=bajajv/aviation-backend:${{ github.sha }}
         kustomize edit set image bajajv/aviation-frontend=bajajv/aviation-frontend:${{ github.sha }}
 

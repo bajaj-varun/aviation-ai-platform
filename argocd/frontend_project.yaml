@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1 
+kind: AppProject               
+metadata:
+  name: aviation.ai.frontend
+  namespace: argocd            
+spec:
+  description: Aviation AI project's frontend application
+  sourceRepos:                 
+    - https://github.com/bajaj-varun/aviation-ai-platform.git
+  destinations:                
+    - namespace: aviation.ai
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:    
+    - group: "frontend-team"               
+      kind: "*"                
+  namespaceResourceWhitelist:  
+    - group: "*"               
+      kind: "*"
+  roles:                       
+    - name: frontend-admins    
+      description: Admins for frontend team
+      policies:
+        - p, proj:Aviation-AI-Frontend:frontend-admins, applications, *, frontend-team/*, allow  

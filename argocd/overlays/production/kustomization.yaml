@@ -3,16 +3,16 @@ kind: Kustomization
 
 namespace: aviation-platform
 
-resources:
-  - ../../base/
-  - ../../../backend/k8s/
-  - ../../../frontend/k8s/
+# resources:
+#   - ../../base/
+#   - ../../../backend/k8s/
+#   - ../../../frontend/k8s/
 
 images:
   - name: bajajv/aviation-backend
-    newTag: develop
+    newTag: develop # It will be set as part of Gitops process
   - name: bajajv/aviation-frontend
-    newTag: develop
+    newTag: develop # It will be set as part of Gitops process
 
 configMapGenerator:
   - name: aviation-config
@@ -21,5 +21,5 @@ configMapGenerator:
       - ENVIRONMENT=production
       - LOG_LEVEL=INFO
 
-patchesStrategicMerge:
-  - deployment-patch.yaml
+# patchesStrategicMerge:
+#   - deployment-patch.yaml
