@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/bajaj-varun/aviation-ai-platform.git
     targetRevision: main
-    path: argocd/scripts/app_frontend.yaml
+    path: kubernetes/deployment/frontend
   
   destination:
     server: https://kubernetes.default.svc
