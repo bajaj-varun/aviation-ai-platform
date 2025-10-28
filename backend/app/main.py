@@ -9,7 +9,7 @@ import uvicorn
 
 load_dotenv()
 
-app = FastAPI(title="Aviation AI Platform", version="1.0.0")
+app = FastAPI(title="Aviation AI Platform", version="1.0.0", root_path="/api")
 
 '''
  TODO:
@@ -39,6 +39,8 @@ class TestRequest(BaseModel):
     test_message: str = "Test connection"
 
 @app.get("/")
+@app.get("/api/")
+@app.get("/health/")
 async def root():
     return {"message": "Aviation AI Platform API", "status": "healthy"}
 
