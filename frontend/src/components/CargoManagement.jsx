@@ -7,9 +7,9 @@ const CargoManagement = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState([]);
   const [error, setError] = useState(null);
-  const apiUrl = import.meta.env.VITE_API_URL;
+  // const apiUrl = import.meta.env.VITE_API_URL;
   // TODO: Need to remove
-  console.info("apiurl =>",apiUrl)
+  // console.info("apiurl =>",apiUrl)
 
   useEffect(() => {
     loadCargoData();
@@ -24,7 +24,7 @@ const CargoManagement = () => {
       setLoading(true);
       setError(null);
       
-      const response = await fetch(`${apiUrl}/cargo`);
+      const response = await fetch("/api/cargo");
       // console.debug("cargo data=>",response.json())
 
       const data = await response.json();

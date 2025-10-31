@@ -22,7 +22,7 @@ spec:
       containers:
       - name: backend
         image: bajajv/aviation-backend:main
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
         env:

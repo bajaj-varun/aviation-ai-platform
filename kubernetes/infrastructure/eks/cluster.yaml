@@ -1,0 +1,20 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: hello-eks
+  region: ap-south-1
+vpc:
+  subnets:
+    public:
+      ap-south-1b: {id: "subnet-0724450f57cc810b4"}
+      ap-south-1a: {id: "subnet-033289070bcf66aa7"}
+      ap-south-1c: {id: "subnet-06c98103583a9492d"}
+managedNodeGroups: 
+  - name: ng-hello-eks
+    instanceType: t3.medium
+    minSize: 1
+    maxSize: 5 
+    desiredCapacity: 2
+    updateConfig:
+      maxUnavailable: 1 # maxUnavailablePercentage: 33
+# Error faced - ALB created in another VPC, so VPC block added
